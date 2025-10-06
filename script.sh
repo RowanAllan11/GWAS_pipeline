@@ -1,16 +1,13 @@
 #!/bin/bash
 
-# GWAS Pipeline
 # Author: Rowan Allan
 # Date: 01/11/24
-# Dependencies: plink (v1.9+), R (with qqman)
-# Input folder: input/ (gwas.bed, gwas.bim, gwas.fam, gwas.covar)
 
-set -e  # exit on error
+set -e 
 
 # 1. Initial Data Overview
 plink --bfile input/gwas --freq --out summary
-awk '{print $6}' input/gwas.fam | sort | uniq -c  # count cases/controls
+awk '{print $6}' input/gwas.fam | sort | uniq -c 
 
 # 2. Missing Data QC
 plink --bfile input/gwas --missing --out missing.stat

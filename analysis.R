@@ -1,14 +1,13 @@
-# analysis.R
-# R Script for GWAS QC, Visualization, and Significant SNP Identification
-# Author: Rowan Allan
-# Date: 01/11/24
+# R Script for GWAS QC, Visualization and Significant SNP Identification
+# Rowan Allan
+# 01/11/24
 
 # Load required packages
 library(qqman)
 
-# -------------------------------
-# 1. Missingness Plots
-# -------------------------------
+
+# Missingness Plots
+
 lmiss_data <- read.table("miss.stat.lmiss", header = TRUE)
 imiss_data <- read.table("miss.stat.imiss", header = TRUE)
 
@@ -30,9 +29,8 @@ hist(imiss_data$F_MISS,
      breaks = 30)
 dev.off()
 
-# -------------------------------
-# 2. Minor Allele Frequency (MAF) Distribution
-# -------------------------------
+# Minor Allele Frequency (MAF) Distribution
+
 allele_freq <- read.table("summary.frq", header = TRUE)
 
 png("plots/maf_distribution.png", width=800, height=600)
@@ -44,9 +42,9 @@ hist(allele_freq$MAF,
      border = "white")
 dev.off()
 
-# -------------------------------
-# 3. Identify Significant SNPs
-# -------------------------------
+
+# Identify Significant SNPs
+
 assoc_data <- read.table("assoc.adjusted.assoc.adjusted", header = TRUE)
 
 # Example filtering for multiple correction significance (BONF, HOLM, SIDAK, FDR)
@@ -60,9 +58,8 @@ significant_snps <- subset(assoc_data,
 
 write.table(significant_snps, "plots/significant_snps.txt", row.names = FALSE, quote = FALSE)
 
-# -------------------------------
-# 4. Manhattan Plot from logistic regression
-# -------------------------------
+# Manhattan Plot from logistic regression
+
 logistic_results <- read.table("yes.assoc.logistic", header = TRUE)
 
 png("plots/manhattan_plot.png", width=1200, height=600)
@@ -74,7 +71,4 @@ manhattan(logistic_results,
           main = "Manhattan Plot of Logistic Regression Results")
 dev.off()
 
-# -------------------------------
-# Finished
-# -------------------------------
 cat("R analysis complete. Plots saved in 'plots/' folder and significant SNPs listed in 'significant_snps.txt'.\n")
