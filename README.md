@@ -26,6 +26,7 @@ The pipeline requires specific bioinformatics tools and R packages, managed via 
 ## Setup Instructions
 
 **Create and Activate Conda Environment:**
+
 ```bash
 conda env create -f environment.yml
 conda activate gwas_pipeline
@@ -35,7 +36,7 @@ conda activate gwas_pipeline
 
 ## Input Data
 
-The pipeline operates on standard PLINK binary files and a separate covariate file.
+The pipeline operates on standard PLINK binary files and a separate covariate file. Files not included*
 
 | Filename | Description | Details |
 | :--- | :--- | :--- |
