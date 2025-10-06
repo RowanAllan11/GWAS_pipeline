@@ -1,0 +1,11 @@
+name: gwas_pipeline
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # Core tools
+  - plink=1.9
+  - r-base=4.3
+  - r-qqman
+
