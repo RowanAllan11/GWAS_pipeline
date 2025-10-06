@@ -48,6 +48,7 @@ The pipeline operates on standard PLINK binary files and a separate covariate fi
 | `gwas.fam` | **Sample Information.** | Includes Family ID (0), Individual ID (e.g., A2001), Sex (1=male, 2=female), and **Phenotype** (2=case, 1=control). |
 | `gwas.covar` | **Covariate Data.** | Contains the **age of the individuals** for adjustment in logistic regression. |
 
+-----
 
 ### A. Initial Overview and Quality Control (QC) Checks
 
@@ -89,6 +90,8 @@ The pipeline operates on standard PLINK binary files and a separate covariate fi
 ### D. R Analysis and Visualization
 
 The `analysis.R` script processes the final results from Step 7 to generate plots and define the final list of associated SNPs.
+
+-----
 
 ## Expected Outputs and Results
 
