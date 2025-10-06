@@ -44,8 +44,8 @@ The pipeline operates on standard PLINK binary files and a separate covariate fi
 | Filename | Description | Details |
 | :--- | :--- | :--- |
 | `gwas.bed` | **Binary Genotype Data.** | Requires PLINK to handle. |
-| `gwas.bim` | **Variant/SNP Information.** | Includes Chromosome, SNP ID (e.g., rs3934834), base pair position, and alleles (e.g., T/C). |
-| `gwas.fam` | **Sample Information.** | Includes Family ID (0), Individual ID (e.g., A2001), Sex (1=male, 2=female), and **Phenotype** (2=case, 1=control). |
+| `gwas.bim` | **Variant/SNP Information.** | Includes Chromosome, SNP ID (e.g., rs3934834), base pair position and alleles (e.g., T/C). |
+| `gwas.fam` | **Sample Information.** | Includes Family ID (0), Individual ID (e.g., A2001), Sex (1=male, 2=female) and **Phenotype** (2=case, 1=control). |
 | `gwas.covar` | **Covariate Data.** | Contains the **age of the individuals** for adjustment in logistic regression. |
 
 -----
@@ -79,7 +79,7 @@ The pipeline operates on standard PLINK binary files and a separate covariate fi
 **Unadjusted Association Testing and Multiple Correction:**
 
   * **Test:** General association test (`--assoc`) followed by multiple testing corrections (`--adjust`).
-  * *Result:* **9 SNPs** were identified as significant ($P < 0.05$) under all applied corrections (Bonferroni, HOLM, SIDAK, and FDR).
+  * *Result:* **9 SNPs** were identified as significant ($P < 0.05$) under all applied corrections (Bonferroni, HOLM, SIDAK and FDR).
   * **Population Structure Check (Unadjusted):** The Genomic Inflation Factor ($\lambda$) was estimated at **1.00943**. This value is very close to 1, indicating **minimal population stratification** confounding the basic analysis.
 
 **Logistic Regression with Covariates:**
